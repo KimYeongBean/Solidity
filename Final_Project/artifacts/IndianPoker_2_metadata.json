@@ -1,0 +1,537 @@
+{
+	"compiler": {
+		"version": "0.8.30+commit.73712a01"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "player",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "allInAmount",
+						"type": "uint256"
+					}
+				],
+				"name": "AllIn",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "player",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "BetPlaced",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "player",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "Called",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "player",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "chips",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amountEth",
+						"type": "uint256"
+					}
+				],
+				"name": "ChipsExchanged",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "player",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amountEth",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "chips",
+						"type": "uint256"
+					}
+				],
+				"name": "ChipsPurchased",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "player",
+						"type": "address"
+					}
+				],
+				"name": "Folded",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "player",
+						"type": "address"
+					}
+				],
+				"name": "GameJoined",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint8",
+						"name": "card0",
+						"type": "uint8"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint8",
+						"name": "card1",
+						"type": "uint8"
+					}
+				],
+				"name": "GameStarted",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "player",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "newBet",
+						"type": "uint256"
+					}
+				],
+				"name": "Raised",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "winner",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint8",
+						"name": "winnerCard",
+						"type": "uint8"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint8",
+						"name": "loserCard",
+						"type": "uint8"
+					}
+				],
+				"name": "ShowdownResult",
+				"type": "event"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "bet",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "callOrAllIn",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "currentBet",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "currentPlayer",
+				"outputs": [
+					{
+						"internalType": "uint8",
+						"name": "",
+						"type": "uint8"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "chipAmount",
+						"type": "uint256"
+					}
+				],
+				"name": "exchange",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "fold",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getChip",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "addr",
+						"type": "address"
+					}
+				],
+				"name": "getPlayerInfo",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "chips",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint8",
+						"name": "card",
+						"type": "uint8"
+					},
+					{
+						"internalType": "uint256",
+						"name": "contributed",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bool",
+						"name": "folded",
+						"type": "bool"
+					},
+					{
+						"internalType": "bool",
+						"name": "isAllIn",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "joinGame",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "playerAddrs",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "players",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "addr",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "chips",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint8",
+						"name": "card",
+						"type": "uint8"
+					},
+					{
+						"internalType": "uint256",
+						"name": "contributed",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bool",
+						"name": "folded",
+						"type": "bool"
+					},
+					{
+						"internalType": "bool",
+						"name": "isAllIn",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "pot",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "newBet",
+						"type": "uint256"
+					}
+				],
+				"name": "raiseBet",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "resetGame",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "state",
+				"outputs": [
+					{
+						"internalType": "enum IndianPoker_2.State",
+						"name": "",
+						"type": "uint8"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"details": "Randomness is insecure (chain‐based hashing) and some rules are approximated (speculation).",
+			"kind": "dev",
+			"methods": {
+				"bet(uint256)": {
+					"params": {
+						"amount": "Number of chips to bet (>0)"
+					}
+				},
+				"exchange(uint256)": {
+					"params": {
+						"chipAmount": "Number of chips to exchange"
+					}
+				},
+				"getChip()": {
+					"details": "Calculates `msg.value * CHIPS_PER_0_001_ETH / WEI_PER_0_001_ETH`"
+				},
+				"getPlayerInfo(address)": {
+					"params": {
+						"addr": "Address of the player to query"
+					},
+					"returns": {
+						"card": "",
+						"chips": "chips",
+						"contributed": "",
+						"folded": "folded",
+						"isAllIn": "isAllIn"
+					}
+				},
+				"raiseBet(uint256)": {
+					"params": {
+						"newBet": "New total bet that must exceed currentBet"
+					}
+				}
+			},
+			"title": "IndianPoker",
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {
+				"bet(uint256)": {
+					"notice": "Initial betting on the first turn: player may bet any positive chip amount."
+				},
+				"callOrAllIn()": {
+					"notice": "Call or go all-in:   - If player’s chips <= needed to call, they go all-in.   - Otherwise, match the current bet."
+				},
+				"exchange(uint256)": {
+					"notice": "Exchange chips back to ETH (0.00005 ETH per chip)"
+				},
+				"fold()": {
+					"notice": "Fold: player gives up their contribution. If they hold an Ace (card==14), apply penalty.   - Ace penalty: pay half of remaining chips (round up if odd) and add to pot."
+				},
+				"getChip()": {
+					"notice": "Buy chips with ETH (20 chips per 0.001 ETH)"
+				},
+				"getPlayerInfo(address)": {
+					"notice": "Get a player’s info (for debugging)"
+				},
+				"joinGame()": {
+					"notice": "Join the game by sending exactly 0.001 ETH. Automatically grants 20 chips."
+				},
+				"raiseBet(uint256)": {
+					"notice": "Raise the current bet to a higher amount."
+				},
+				"resetGame()": {
+					"notice": "Reset the game to initial state (clear both players). Only callable when state == Finished."
+				}
+			},
+			"notice": "Simple two-player Indian Poker smart contract implementation",
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"Final_Project/IndianPoker_2.sol": "IndianPoker_2"
+		},
+		"evmVersion": "prague",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"Final_Project/IndianPoker_2.sol": {
+			"keccak256": "0x58e9fe407cf63f778f2448cc38e94019570e639e8aca7287850052c1af237131",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://14d8283c1a0e2a7235569cc4caa5e0b213792e8f44ba0104375c140da6a609c6",
+				"dweb:/ipfs/QmYdxrvszXhxKLWuWA58afmWaASK7rJTyB6HPLTfzEMcrs"
+			]
+		}
+	},
+	"version": 1
+}
